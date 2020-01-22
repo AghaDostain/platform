@@ -15,7 +15,8 @@ Detailed installation instructions can be found on the [Installation](guide/stor
 
 ## Diagram
 
-The following diagram represents the overall general flow of application state in NgRx. 
+The following diagram represents the overall general flow of application state in NgRx.
+
 <figure>
   <img src="generated/images/guide/store/state-management-lifecycle.png" alt="NgRx State Management Lifecycle Diagram" width="100%" height="100%" />
 </figure>
@@ -47,6 +48,8 @@ The following tutorial shows you how to manage the state of a counter, and how t
 </code-example>
 
 6.  Create a new _Component_ named `my-counter` in the `app` folder. Inject the `Store` service into your component to dispatch the counter actions, and use the `select` operator to _select_ data from the state.
+
+Because we are using selectors to access data from the `Store` it is not necessary to provide as generic type to the `Store`. Previously, you would need to provide a type such as `Store<AppState>`, however, this is no longer necessary as the default `Store` provides a default generic type.
 
 Update the `MyCounterComponent` template with buttons to call the increment, decrement, and reset methods. Use the async pipe to subscribe to the _count$_ observable.
 
